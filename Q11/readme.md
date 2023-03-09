@@ -65,4 +65,48 @@ This specifies that the DTD for the document is stored in the "question.dtd" fil
 
 ***
 
-Exported on 2 February 2023 9:42 pm.
+**Inline DTD**
+
+```
+<!DOCTYPE question-paper [
+<!ELEMENT question-paper (question*)>
+<!ELEMENT question (text, optionA, optionB, optionC, optionD, answer)>
+<!ELEMENT text (#PCDATA)>
+<!ELEMENT optionA (#PCDATA)>
+<!ELEMENT optionB (#PCDATA)>
+<!ELEMENT optionC (#PCDATA)>
+<!ELEMENT optionD (#PCDATA)>
+<!ELEMENT answer (#PCDATA)>
+<!ATTLIST question no CDATA #REQUIRED>
+<!ATTLIST answer value (optionA|optionB|optionC|optionD) #REQUIRED>
+]>
+<question-paper>
+  <question no="1">
+    <text>What is the capital of France?</text>
+    <optionA>London</optionA>
+    <optionB>Paris</optionB>
+    <optionC>Moscow</optionC>
+    <optionD>New York</optionD>
+    <answer value="optionB">Paris</answer>
+  </question>
+  <question no="2">
+    <text>Who invented telephone?</text>
+    <optionA>Alexander Graham Bell</optionA>
+    <optionB>Thomas Edison</optionB>
+    <optionC>Nikola Tesla</optionC>
+    <optionD>Michael Faraday</optionD>
+    <answer value="optionA">Alexander Graham Bell</answer>
+  </question>
+  <question no="3">
+    <text>What is the largest planet in our solar system?</text>
+    <optionA>Venus</optionA>
+    <optionB>Mars</optionB>
+    <optionC>Earth</optionC>
+    <optionD>Jupiter</optionD>
+    <answer value="optionD">Jupiter</answer>
+  </question>
+</question-paper>
+
+```
+
+This can validated using https://www.xmlvalidation.com/
